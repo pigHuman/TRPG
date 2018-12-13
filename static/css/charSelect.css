@@ -32,18 +32,18 @@ a.characterEditButton:hover {
 	color: #fff;
 }
 #characters{
-	height:calc(100% - 80px);
+	height:calc(100% - 84px);
 	width:100%;
 	margin-top:10px;
 }
 .characterBar{
 	height:80px;
-	width:100%;
+	width:calc(100% - 6px);
 	background:#15e448
 }
 .icons{
 	float:left;
-	margin-left:20px;
+	margin-left:15px;
 	height:100%;
 }
 
@@ -51,7 +51,7 @@ a.characterEditButton:hover {
 	float:left;
 	display: table;
 	height:100%;
-	width:calc(85% - 100px);
+	width:calc(85% - 96px);
 	background:#ffffff;
 	font-size: 4vmin; 
 	max-height:80px;
