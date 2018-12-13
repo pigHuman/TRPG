@@ -14,7 +14,7 @@
                     <a href="#" onclick="characterSelect()" id="character">キャラクター
                         <img src="../static/image/character.jpeg" align="right">
                     </a>
-                    <a href="#" onclick="roomSelect()" id="room">ルーム選択
+                    <a href="#" id="room" onclick="roomSelect()">ルーム選択
                         <img src="../static/image/room.jpeg" align="right">
                     </a>
                     <a href="#" id="acount" onclick="acountConfig()">アカウント
@@ -70,26 +70,33 @@
 
                 </div>
                 <div class="dice">
-                    <div>
-                        <select id="dice">
-                            <option value="4">4面ダイス</option>
-                            <option value="6">6面ダイス</option>
-                            <option value="8">8面ダイス</option>
-                            <option value="10">10面ダイス</option>
-                            <option value="20">20面ダイス</option>
-                        </select>を
-                        <select id="rolls">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>回振る
-
-                        <input type="checkbox" value="chatDice" id="chatDice">結果をチャットする
-                        <input type="button" value="ダイスを振る" onclick="rollDice()">
+                    <div style="float:left;">
+                        <div style="float:left;">
+                            <select id="dice">
+                                <option value="4">4面ダイス</option>
+                                <option value="6">6面ダイス</option>
+                                <option value="8">8面ダイス</option>
+                                <option value="10">10面ダイス</option>
+                                <option value="20">20面ダイス</option>
+                            </select>を                            
+                        </div>
+                        <div style="float:left;">
+                            <select id="rolls">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>回振る                            
+                        </div>
+                        <div style="float:left;">
+                            <input type="checkbox" value="chatDice" id="chatDice">結果をチャットする                            
+                        </div>
+                        <div style="float:left;">
+                            <input type="button" value="ダイスを振る" onclick="rollDice()">                            
+                        </div>
                     </div>
-                    <div id="rollResults">
+                    <div id="rollResults" style="float:left;">
                     </div>
                 </div>
             </div>

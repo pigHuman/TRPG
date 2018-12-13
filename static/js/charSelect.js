@@ -26,7 +26,10 @@ function useCharacter(element){
         }
 }
 
-myWindow = window.open("./charSel.html", "myWindow", "width=700,height=400");
 function viewCharacter(element){
-        window.open("../characterView/index.html", "characterSeet", "width=700,height=700,top=140,left=500");
+        window.open("/charEdit/", "characterSeet", "width=700,height=750,top=140,left=500");
+}
+
+function createCharacter(){
+        window.open("/charCreate/", "characterSeet", "width=700,height=750,top=140,left=500");
 }

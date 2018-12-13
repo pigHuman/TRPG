@@ -3,16 +3,17 @@
   <head>
     <meta charset="utf-8">
     <title>TRPG支援ツール・キャラクター選択画面</title>
-    <link rel="stylesheet" href="/static/css/charSelect.css">
+    <link rel="stylesheet" href="/charSelect/css/charSelect.css">
     <script src="/static/js/charSelect.js"></script>
   </head>
   <body>
-    <a href="/charSelect/charDataInput/" target="_blank" class="characterEditButton">＋新規キャラクターを作成</a>
+    <a href="#" onclick="createCharacter();" class="characterEditButton" style="margin:5px; margin-bottom:-2px;">＋新規キャラクターを作成</a>
     <div id="characters">
-        <div id="noCharacters">
+        <div id="noCharacters" style="display:none;">
+            きゃらくたーがいません
         </div>
-        <div class="characterBar" id="orgChar">
-            <a href="#" onclick="viewCharacter(this)">
+        <div class="characterBar" id="orgChar" style="margin:3px;">
+            <a href="#" onclick="viewCharacter(this);">
                 <div class="icons">
                     <img src="/static/image/noface.jpeg">
                 </div>
@@ -22,14 +23,14 @@
                     </div>
                 </div>
             </a>
-            <a href="#" onclick="useCharacter(this)" class="midori">
+            <a href="#" onclick="useCharacter(this);" class="midori">
                 <div class="choice">
                     <div class="innerTexts">
                         使用する
                     </div>
                 </div>
             </a>
-        </div>
+        </div>  
     </div>
   </body>
 </html>    
