@@ -1,0 +1,23 @@
+
+*{
+	user-select: none;
+}
+a, a:visited {
+	color : #131112;
+	text-decoration:none;
+}
+html{
+	height: 100%;
+	width:100%;
+}
+body{
+	position:relative;
+    height: 100%;
+	margin: 0;
+	background: #cecaca;
+	text-align:center;
+}
+
+
+
+
