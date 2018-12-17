@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TRPG支援ツール・ルーム選択画面</title>
+    <link rel="stylesheet" href="../static/css/roomSelect.css">
+    <script src="../static/js/roomSelect.js"></script>
+  </head>
+  <body style="height:calc(100% - 5px);">
+    <a href="#" onclick="editRoom();" class="roomEditButton" style="margin:5px; margin-bottom:3px;">＋新規ルームを作成</a>
+    <div id="rooms">
+
+
+        <div class="room square_btn" id="orgRoom" style="text-align:center; float:left; width:calc(100% - 19px);">
+            <a href="#" onclick="roomClick(this);">
+                <div style="width:100%;">
+                    <div style="width:50%; float:left; font-size:20px;">
+                        <b>
+                            ＜ルーム名＞
+                        </b>
+                    </div>
+                    <div style="width:50%; float:left;">
+                        <div >
+                            作成者：＜プレイヤー名＞
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div style="width:100%; float:left;">
+                    ＜コメント＞
+                </div>
+            </a>
+        </div>
+        
+    </div>
+  </body>
+</html>    

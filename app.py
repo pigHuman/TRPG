@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 from flask import Flask, render_template
 from flask import request, jsonify
 import json
@@ -41,7 +40,6 @@ def testjson():
     #json_str = json.dumps(json_data)
     #mongo.db.test.insert(json_data)
     #return "完了"
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST' and _is_account_valid():
@@ -73,12 +71,20 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
-@app.route("/Accounts")
+@app.route("/acountConfig/")
+def AccountConfig():
+    return render_template('acountConfig.html')
+
+
+@app.route("/acountFind/",methods=['GET'])
 def Accounts_find():
-    username = session["username"]
-    user_data = mongo.db.users.find({"username": username})
-    del user_data["_id"]
-    return json.dumps(user_data)
+    if request.method == 'GET':
+        username = session["username"]
+        user_data = mongo.db.users.find({"username": username})
+        del user_data["_id"]
+        return json.dumps(user_data)
+    else:
+        return render_template('acountConfig.html')
 
 @app.route("/Accounts/data", methods=['POST'])
 def Accounts_insert():
@@ -123,24 +129,27 @@ def RoomCreate():
         mongo.db.room.insert(json_data)
         return render_template('index.html')
 
-@app.route("/charCreate/")
+@app.route("/charView/")
 def chardata():
     return render_template('charView.html')
 
 
-@app.route("/charCreateInput/")
+@app.route("/charCreate/",methods=['POST','GET'])
 def charcreate():
-    username = session["username"]
+    if request.method == "POST":
+        username = session["username"]
 
-    with open('request.json', 'r') as file:
-        json_data = json.load(file)
-    json_data["username"] = username
+        with open('request.json', 'r') as file:
+            json_data = json.load(file)
+        json_data["username"] = username
 
-    #json_str = json.dumps(json_data)
+        #json_str = json.dumps(json_data)
 
-    mongo.db.charsheet.insert(json_data)
-    #json_data = request.json()
-    return "完了"
+        mongo.db.charsheet.insert(json_data)
+        #json_data = request.json()
+        return "完了"
+    else:
+        return render_template('charEdit.html')
 
 @app.route("/sheetdrop",methods=['GET'])
 def sheetdrop():

@@ -11,5 +11,10 @@ window.onload = function onloads(){
 
 
 function editRoom(){
-        window.open("/roomEdit/", "roomEdit", "width=700,height=750,top=140,left=500");
+        window.open("./roomEdit.html", "roomEdit", "width=500,height=110,top=300,left=500");
 }
+
+function roomClick(element){
+        window.open("./roomEntry.html", "roomEntry", "width=300,height=30,top=350,left=350");
+}
+

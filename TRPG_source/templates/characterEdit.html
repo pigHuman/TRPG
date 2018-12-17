@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TRPG支援ツール・キャラクターシート</title>
+    <link rel="stylesheet" href="../static/css/characterEdit.css">
+    <script src="../static/js/characterEdit.js"></script>
+  </head>
+  <body>
+    <div id="gameName">
+        <input type="text" value="＜TRPG名＞" name="gameName">
+    </div>
+    <div id="commitButton">
+      <input type="button" value="保存する" onclick="history.back()">
+    </div>
+    <div id="charMain">
+        <div id="charImage">
+            <img src="../static/image/noface.jpeg">
+        </div>
+        <div id="charSum">
+          <div id="state">
+            キャラクター名<br>
+            性別<br>
+            年齢<br>
+            職業
+          </div>
+          <div id="value">
+            <input type="text" value="＜キャラクター名＞" name="characterName"><br>
+            <input type="text" value="＜性別＞" name="characterSex"><br>
+            <input type="text" value="＜年齢＞" name="characterAge"><br>
+            <input type="text" value="＜職業＞" name="characterJob">
+          </div>
+        </div>
+    </div>
+    <div id="charStatus">
+      <div style="width:100%; float:left;">
+        <h4>
+          <div style="float:left; margin-left:30px;">
+            ステータス　
+          </div>
+          <div class="addButton" style="float:left;">
+            <a href="#" onclick="addBox(this);">
+              ＋追加
+            </a>
+          </div>
+        </h4>
+      </div>
+      <div class="statuses original" id="orgStatus" style="width:33%; float:left; display:none;">
+          <table>
+            <td>
+              <a href="#" class="deleteButton" onclick="delBox(this)">
+                ✖
+              </a>
+            </td>
+            <td>
+                <input type="text" value="＜能力名＞" style="width:100%; box-sizing:border-box" >
+            </td>
+            <td>:</td>
+            <td>
+                <input type="text" value="＜能力値＞" style="width:100%; box-sizing:border-box" >
+            </td>
+            <td>　</td>
+          </table>
+      </div>   
+    </div>
+    <div id="charSkill">
+      <div style="width:100%; float:left;">
+        <h4>
+          <div style="float:left; margin-left:30px;">
+            スキル　
+          </div>
+          <div class="addButton" style="float:left;">
+            <a href="#" onclick="addBox(this);">
+              ＋追加
+            </a>
+          </div>
+        </h4>
+      </div>
+      <div class="skills original" id="orgSkill" style="width:33%; float:left; display:none;">
+          <table>
+            <td>
+              <a href="#" class="deleteButton" onclick="delBox(this)">
+                ✖
+              </a>
+            </td>
+            <td>
+                <input type="text" value="＜技能名＞" style="width:100%; box-sizing:border-box" >
+            </td>
+            <td>:</td>
+            <td>
+                <input type="text" value="＜技能値＞" style="width:100%; box-sizing:border-box" >
+            </td>
+            <td>　</td>
+          </table>
+      </div>
+    </div>
+    <div id="charNote">
+      <div style="float:left; width:100%;">
+        <div style="width:50%; float:left;">
+          <div style="width:100%; float:left;">
+            <h4>
+              <div style="float:left; margin-left:30px;">
+                所持品　
+              </div>
+            </h4>
+          </div>
+          <div style="width:calc(100% - 10px); float:left; margin:3px;">
+              <textarea style="width:100%;" oninput="textAreaHeightSet(this)" onchange="textAreaHeightSet(this)"></textarea>
+          </div>
+        </div>
+        <div style="width:50%; float:left;">
+          <div style="width:100%; float:left;">
+            <h4>
+              <div style="float:left; margin-left:30px;">
+                状態　
+              </div>
+            </h4>
+          </div>
+          <div style="width:calc(100% - 10px); float:left; margin:3px;">
+              <textarea style="width:100%;" oninput="textAreaHeightSet(this)" onchange="textAreaHeightSet(this)"></textarea>
+          </div>
+        </div>
+      </div>
+      
+      <div style="width:100%; float:left;">
+        <h4>
+          <div style="float:left; margin-left:30px;">
+            メモ　
+          </div>
+        </h4>
+      </div>
+      <div style="width:calc(100% - 10px); float:left; margin:3px;">
+        <textarea style="width:100%;" oninput="textAreaHeightSet(this)" onchange="textAreaHeightSet(this)"></textarea>
+      </div>
+    </div>
+  </body>
+</html>    
