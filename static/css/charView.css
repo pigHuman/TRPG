@@ -1,0 +1,65 @@
+
+*{
+	user-select: none;
+}
+a, a:visited {
+	color : #131112;
+	text-decoration:none;
+}
+html{
+	height: 100%;
+	width:100%;
+}
+body{
+	position:relative;
+    height: 100%;
+	margin: 0;
+	background: #cecaca;
+	text-align:center;
+}
+#gameName{
+	float:left;
+	text-align:center;
+	width:calc(90% - 20px);
+	margin:0 10px 0 10px;
+}
+#commitButton{
+	float:left;
+	width:10%;
+}
+#charImage{
+	float:left;
+}
+#charImage img{
+	height:120px;
+	width:120px;
+}
+#charSum{
+	float:left;
+	
+	height:130px;
+	width:calc(100% - 122px);
+}
+#state{
+	margin-top:11px;
+	float:left;
+	width:140px;
+	text-align:center;
+}
+#value{
+	margin-top:11px;
+	float:left;
+	width:calc(100% - 145px);
+}
+input{
+	width:100%;
+	text-align:center;
+}
+
+.addButton{
+	background: #57f010;
+	border-radius:10px;
+}
+
+
+

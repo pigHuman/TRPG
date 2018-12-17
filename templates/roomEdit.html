@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TRPG支援ツール・ルーム作成画面</title>
+    <link rel="stylesheet" href="/static/css/roomEdit.css">
+    <script src="/static/js/roomEdit.js"></script>
+  </head>
+  <body>
+    <div>
+      <input type="text" value="ルーム名">
+      <input type="text" value="パスワード">
+    </div>
+    <div>
+      <textarea style="width:100%;" oninput="textAreaHeightSet(this)" onchange="textAreaHeightSet(this)">コメント</textarea>
+    </div>
+    <div>
+      <a href="#" id="roomCreate">(ルーム作成)</a>
+    </div>
+  </body>
+</html>    
