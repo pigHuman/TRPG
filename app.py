@@ -129,9 +129,11 @@ def RoomCreate():
         mongo.db.room.insert(json_data)
         return render_template('index.html')
 
-@app.route("/charView/")
+@app.route("/charView/",methods=['GET'])
 def chardata():
-    return render_template('charView.html')
+    if request.method == "GET":
+        data = charsheet_find()
+        return data
 
 
 @app.route("/charCreate/",methods=['POST','GET'])
@@ -161,16 +163,16 @@ def sheetdrop():
 def charsheet_find():
     username = session["username"]
     char_data = mongo.db.charsheet.find({"username": username})
-    del char_data["_id"]
-    return json.dumps(char_data)
+    #del char_data["_id"]
+    char_data = json.dumps(char_data)
+    return char_data
 
 def roomlist_find():
     roomlist_data = mongo.db.room.find({"users":{ "$exists" :1}})
     if roomlist_data is null:
         return False
     del roomlist_data["_id"]
-    return json.dumps(roomlist_data)
-
-
+    roomlist_data = json.dumps(roomlist_data)
+    return roomlist_data
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=8000)
