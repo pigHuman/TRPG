@@ -27,9 +27,9 @@ function useCharacter(element){
 }
 
 function viewCharacter(element){
-        window.open("./characterEdit.html", "characterSeet", "width=700,height=750,top=140,left=500");
+        window.open("/charEdit/", "characterSeet", "width=700,height=750,top=140,left=500");
 }
 
 function createCharacter(){
-        window.open("./characterEdit.html", "characterSeet", "width=700,height=750,top=140,left=500");
+        window.open("/charEdit/", "characterSeet", "width=700,height=750,top=140,left=500");
 }

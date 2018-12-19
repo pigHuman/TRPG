@@ -15,6 +15,6 @@ function editRoom(){
 }
 
 function roomClick(element){
-        window.open("/roomIn/", "roomEntry", "width=300,height=30,top=350,left=350");
+        window.open("/roomEntry/", "roomEntry", "width=300,height=30,top=350,left=350");
 }
 
