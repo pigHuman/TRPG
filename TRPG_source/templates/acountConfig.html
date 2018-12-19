@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html style="width:100%; height:100%;">
   <head>
     <meta charset="utf-8">
     <title>TRPG支援ツール・アカウント設定画面</title>
     <link rel="stylesheet" href="../static/css/acountConfig.css">
     <script src="../static/js/acountConfig.js"></script>
   </head>
-  <body>
-    ＜画像＞
-    ＜アカウント名＞
-    ＜パスワード＞
-    ＜コメント＞
-    ＜所持画像＞
-    
+  <body style="width:100%; height:100%;">
+    <div>
+      <div style="float:left; width:120px;">
+        <a href="#" onclick="acountImageChange();">
+          <img src="../static/image/acountImage.jpeg" align="left">           
+        </a>
+      </div>
+      <div style="float:left; width:calc(100% - 120px);">
+        <a href="#" onclick="acountNameChange();">
+          <div style="width:100%;">
+            ユーザー名:＜ユーザー名＞        
+          </div>
+        </a>
+        <a href="#" onclick="acountPasswordChange();">
+          <div style="width:100%;">
+            パスワード：＊＊＊＊＊＊＊＊＊＊            
+          </div>
+        </a>
+        <a href="#" onclick="acountCommentChange();">
+          <div style="width:100%;">
+            コメント：＜コメント＞         
+          </div>
+        </a>
+      </div>
+    </div>
+    <div style="float:left; width:100%;">
+      ＜所持画像＞      
+    </div>
   </body>
-</html>    
+</html>   

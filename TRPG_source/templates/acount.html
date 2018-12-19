@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html style="width:100%; height:100%;">
+  <head>
+    <meta charset="utf-8">
+    <title>TRPG支援ツール・アカウント設定画面</title>
+    <link rel="stylesheet" href="../static/css/acount.css">
+    <script src="../static/js/acount.js"></script>
+  </head>
+  <body style="width:100%; height:100%;">
+    <div style="user-select:none;">
+      <div style="float:left; width:120px;">
+        <img src="../static/image/acountImage.jpeg" align="left">      
+      </div>
+      <div style="float:left; width:calc(100% - 120px);">
+        <div style="width:100%;" align="right">
+          <input type="button" value="編集" onclick="acountConfig();">
+        </div>
+        <div style="width:100%;">
+          ユーザー名:＜ユーザー名＞        
+        </div>
+        <div style="width:100%;">
+          コメント：＜コメント＞         
+        </div>    
+      </div>
+    </div>
+    <div style="float:left; width:100%;">
+      <div style="width:100%;">
+        ＜所持画像＞
+      </div>
+      <div style="width:100%;">
+        <a href="#" onclick="viewImage();">
+          <img src="../static/image/BigKnightB.jpeg" class="icons">          
+        </a>
+
+        <div id="modal-content">
+          <p>「閉じる」か「背景」をクリックするとモーダルウィンドウを終了します。</p>
+          <p><a id="modal-close" class="button-link">閉じる</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>    

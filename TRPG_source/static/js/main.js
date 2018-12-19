@@ -420,8 +420,8 @@ function roomSelect(){
         window.open("./roomSelect.html", "roomSelect", "width=500,height=500,top=100,left=100");
 }
 
-function acountConfig(){
-        window.open("./acountConfig.html", "acountConfig", "width=500,height=500,top=100,left=100");
+function acount(){
+        window.open("./acount.html", "acount", "width=500,height=500,top=100,left=100");
 }
 
 
