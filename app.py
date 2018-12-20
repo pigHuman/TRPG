@@ -71,6 +71,10 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
+@app.route("/acount/")
+def acount():
+    return render_template('acount.html')
+
 @app.route("/acountConfig/")
 def AccountConfig():
     return render_template('acountConfig.html')
@@ -136,7 +140,7 @@ def chardata():
         return data
 
 
-@app.route("/charCreate/",methods=['POST','GET'])
+@app.route("/charEdit/",methods=['POST','GET'])
 def charcreate():
     if request.method == "POST":
         username = session["username"]
@@ -174,5 +178,6 @@ def roomlist_find():
     del roomlist_data["_id"]
     roomlist_data = json.dumps(roomlist_data)
     return roomlist_data
+
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=8000)

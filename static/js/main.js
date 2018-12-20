@@ -1,7 +1,4 @@
 
-
-
-
 //今表示されている.displayのサイズを調整
 function adjustDisplay(){
         var tabHeight = parseInt(tabArea.clientHeight) -3;
@@ -411,7 +408,6 @@ function dblClickTab(element){
         inputbox.focus();     
 }   
 
-
 function characterSelect(){
         window.open("/charSelect/", "characterSelect", "width=500,height=500,top=100,left=100");
 }
@@ -420,8 +416,7 @@ function roomSelect(){
         window.open("/roomSelect/", "roomSelect", "width=500,height=500,top=100,left=100");
 }
 
-function acountConfig(){
-        window.open("/acountConfig/", "acountConfig", "width=500,height=500,top=100,left=100");
-}
+function acount(){
+        window.open("/acount/", "acount", "width=500,height=500,top=100,left=100");}
 
 
