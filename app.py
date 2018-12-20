@@ -21,6 +21,8 @@ def before_request():
         return
     if request.path == '/login':
         return
+    if request.path == '/acountCreate/':
+        return
     return redirect('/login')
 
 
@@ -40,6 +42,7 @@ def testjson():
     #json_str = json.dumps(json_data)
     #mongo.db.test.insert(json_data)
     #return "完了"
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST' and _is_account_valid():
@@ -48,19 +51,43 @@ def login():
     return render_template('login.html')
 
 def _is_account_valid():
-    m_text = ""
-    pass_text = ""
+
     username = request.form.get('username')
     password = request.form.get('password')
-    users = mongo.db.users.find({"username": username})
+    users = mongo.db.users.find_one({"username": username})
+
     if username == 'admin':
         return True
-    for i in users:
-        m_text += i["username"]
-        pass_text += i["password"]
-    if m_text == username and password == pass_text:
+    try:
+        name_text = users["username"]
+        pass_text = users["password"]
+        if name_text == username and pass_text == password:
+            return True
+    except:
+        return False
+
+
+@app.route('/acountCreate/',methods=['POST','GET'])
+def acountCreate():
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        password_r = request.form.get('password_r')
+        if password != password_r or acountOverlap() == False:
+            return 'アカウント登録に失敗しました。ほかのアカウント名を設定してください'
+        mongo.db.users.insert({"username":username,"password":password})
+        return redirect('/login')
+    else:
+        return render_template('createId.html')
+
+def acountOverlap():
+    username = request.form.get('username')
+    user = mongo.db.users.find_one({"username":username})
+    try:
+        if user["username"] == username:
+            return False
+    except:
         return True
-    return False
 
 @app.route('/charSelect/',methods=['GET'])
 def charSelect():
@@ -86,7 +113,11 @@ def Accounts_find():
         username = session["username"]
         user_data = mongo.db.users.find({"username": username})
         del user_data["_id"]
-        return json.dumps(user_data)
+        for i in user_data:
+             json_data = json.dumps(i)
+
+        user_data = json.dumps(user_data)
+        return user_data
     else:
         return render_template('acountConfig.html')
 

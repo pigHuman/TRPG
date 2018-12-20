@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TRPG支援ツール・アカウント作成画面</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    
+  </head>
+  <body>
+    <div class="form-wrapper">
+      <h1>TRPG支援ツール・アカウント新規作成</h1>
+      <form method="POST">
+        <div class="form-item">
+          <label for=username"></label>
+          <input type="text" name="username" required="required" placeholder="ID"></input>
+        </div>
+        <div class="form-item">
+          <label for="password"></label>
+          <input type="password" name="password" required="required" placeholder="Password" ></input>
+        </div>
+          <label for="password_r"></label>
+          <input type="password" name="password_r" required="required" placeholder="Password_R" ></input>
+        </div>
+        <div class="button-panel">
+          <input type="submit" class="button" title="Sign In" value="作成"></input>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
