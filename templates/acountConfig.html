@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+<html lang="ja">
 <html style="width:100%; height:100%;">
   <head>
-    <meta charset="utf-8">
     <title>TRPG支援ツール・アカウント設定画面</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes" name="viewport">
     <link rel="stylesheet" href="/static/css/acountConfig.css">
     <script src="/static/js/acountConfig.js"></script>
   </head>
@@ -13,23 +15,28 @@
           <img src="/static/image/acountImage.jpeg" align="left">           
         </a>
       </div>
+      <section id="disp-section">
       <div style="float:left; width:calc(100% - 120px);">
+        {% set name = user["username"] %}
+        {% set pass = user["password"] %}
+        {% set memo = user["memo"] %}
         <a href="#" onclick="acountNameChange();">
-          <div style="width:100%;">
-            ユーザー名:＜ユーザー名＞        
-          </div>
+          <h1 data-name="username">
+            ユーザー名:{{ name }}
+          </h1>
         </a>
         <a href="#" onclick="acountPasswordChange();">
-          <div style="width:100%;">
-            パスワード：＊＊＊＊＊＊＊＊＊＊            
-          </div>
+          <p data-name="password">
+            パスワード:{{ pass }}
+          </p>
         </a>
         <a href="#" onclick="acountCommentChange();">
-          <div style="width:100%;">
-            コメント：＜コメント＞         
-          </div>
+          <p data-name="coment">
+            コメント:{{ memo }}
+          </p>
         </a>
       </div>
+      </section>
     </div>
     <div style="float:left; width:100%;">
       ＜所持画像＞      

@@ -1,19 +1,21 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template
-from flask import request, jsonify
+from flask import request,make_response, current_app, jsonify
 import json
 from flask import session, redirect, url_for
 import os
 import sys
 from flask_pymongo import PyMongo
 from pymongo import MongoClient
-from bson.json_util import loads
+from bson.json_util import dumps,loads
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
 app.config["MONGO_URI"] = "mongodb://localhost:27017/TRPGDatabase"
 mongo = PyMongo(app)
+app.config['JSON_AS_ASCII'] = False
+
 
 @app.before_request
 def before_request():
@@ -102,26 +104,16 @@ def logout():
 def acount():
     return render_template('acount.html')
 
-@app.route("/acountConfig/")
+@app.route("/acountConfig/",methods=['GET'])
 def AccountConfig():
-    return render_template('acountConfig.html')
+    username = session["username"]
+    user_data = mongo.db.users.find_one({"username": username})
+    #user_data = json.loads(user_data)
+    print(user_data)
+    return render_template('acountConfig.html',user=user_data)
 
 
-@app.route("/acountFind/",methods=['GET'])
-def Accounts_find():
-    if request.method == 'GET':
-        username = session["username"]
-        user_data = mongo.db.users.find({"username": username})
-        del user_data["_id"]
-        for i in user_data:
-             json_data = json.dumps(i)
-
-        user_data = json.dumps(user_data)
-        return user_data
-    else:
-        return render_template('acountConfig.html')
-
-@app.route("/Accounts/data", methods=['POST'])
+@app.route("/Accounts/data", methods=['POST','GET'])
 def Accounts_insert():
     if request.method == "POST":
         username = session["username"]
@@ -180,10 +172,7 @@ def charcreate():
             json_data = json.load(file)
         json_data["username"] = username
 
-        #json_str = json.dumps(json_data)
-
         mongo.db.charsheet.insert(json_data)
-        #json_data = request.json()
         return "完了"
     else:
         return render_template('charEdit.html')
@@ -195,10 +184,10 @@ def sheetdrop():
     mongo.db.charsheet.remove({"$and"[{"username": username},{"charname":charname}]})
     return render_template('index.html')
 
-def charsheet_find():
+def charsheet_find(charname):
     username = session["username"]
-    char_data = mongo.db.charsheet.find({"username": username})
-    #del char_data["_id"]
+    char_data = mongo.db.charsheet.find_one({ "$and": [{"username": username},{"charname":charname}]})
+    del char_data["_id"]
     char_data = json.dumps(char_data)
     return char_data
 
