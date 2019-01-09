@@ -12,14 +12,15 @@
         <div id="noCharacters" style="display:none;">
             きゃらくたーがいません
         </div>
+        {% for name in char %}
         <div class="characterBar" id="orgChar" style="margin:3px;">
-            <a href="#" onclick="viewCharacter(this);">
+            <a href="#" onclick="viewCharacter(this,{{ name }});">
                 <div class="icons">
                     <img src="../static/image/noface.jpeg">
                 </div>
                 <div class="characterName">
                     <div class="innerTexts">
-                        キャラクター名
+                        {{ name }}
                     </div>
                 </div>
             </a>
@@ -30,7 +31,8 @@
                     </div>
                 </div>
             </a>
-        </div>  
+        </div> 
+        {% endfor %}
     </div>
   </body>
 </html>    

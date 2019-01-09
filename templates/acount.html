@@ -7,6 +7,9 @@
     <script src="/static/js/acount.js"></script>
   </head>
   <body style="width:100%; height:100%;">
+    {% set name = user["username"] %}
+    {% set pass = user["password"] %}
+    {% set memo = user["memo"] %}
     <div style="user-select:none;">
       <div style="float:left; width:120px;">
         <img src="/static/image/acountImage.jpeg" align="left">      
@@ -16,10 +19,10 @@
           <input type="button" value="編集" onclick="acountConfig();">
         </div>
         <div style="width:100%;">
-          ユーザー名:＜ユーザー名＞        
+          ユーザー名:{{ name }}        
         </div>
         <div style="width:100%;">
-          コメント：＜コメント＞         
+          コメント：{{ memo }}         
         </div>    
       </div>
     </div>

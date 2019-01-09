@@ -93,7 +93,16 @@ def acountOverlap():
 
 @app.route('/charSelect/',methods=['GET'])
 def charSelect():
-    return render_template('charSelect.html')
+    char = []
+    username = session["username"]
+    char_data = mongo.db.charsheet.find({"username": username})
+
+    for i in char_data:
+        char.append(i['characterName'])
+
+    print(char)
+
+    return render_template('charSelect.html',char=char)
 
 @app.route('/logout', methods=['GET'])
 def logout():
@@ -102,7 +111,10 @@ def logout():
 
 @app.route("/acount/")
 def acount():
-    return render_template('acount.html')
+    username = session["username"]
+    user_data = mongo.db.users.find_one({"username": username})
+    print(user_data)
+    return render_template('acount.html',user=user_data)
 
 @app.route("/acountConfig/",methods=['GET'])
 def AccountConfig():
@@ -164,18 +176,28 @@ def chardata():
 
 
 @app.route("/charEdit/",methods=['POST','GET'])
-def charcreate():
+def charEdit():
+        return render_template('charEdit.html')
+
+@app.route("/charEdit/post",methods=['POST'])
+def charPost():
     if request.method == "POST":
         username = session["username"]
+        fields = ['username']
+        fields += [k for k in request.form]
+        values = [username]
+        values += [request.form[k] for k in request.form]
+        data = (dict(zip(fields, values)))
+        print(data)
 
-        with open('request.json', 'r') as file:
-            json_data = json.load(file)
-        json_data["username"] = username
+        #json_data = request.json
+        #with open('json_data', 'r') as file:
+        #json_data = json.load(json_data)
+        #json_data["username"] = username
 
-        mongo.db.charsheet.insert(json_data)
+        mongo.db.charsheet.insert(data)
         return "完了"
-    else:
-        return render_template('charEdit.html')
+
 
 @app.route("/sheetdrop",methods=['GET'])
 def sheetdrop():
