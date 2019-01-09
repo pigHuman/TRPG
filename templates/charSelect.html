@@ -14,7 +14,8 @@
         </div>
         {% for name in char %}
         <div class="characterBar" id="orgChar" style="margin:3px;">
-            <a href="#" onclick="viewCharacter(this,{{ name }});">
+            <form input method="POST" type="hidden" name="charName" value="{{ name }}"></form>
+            <a href="javascript:form1.submit()" onclick="viewCharacter(this);">
                 <div class="icons">
                     <img src="../static/image/noface.jpeg">
                 </div>

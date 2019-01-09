@@ -310,9 +310,25 @@ window.onload = function onloads(){
         dropEnable();
         clickTabAdd();
         adjustDisplay();
-
-        
+        setInterval("getDisplayData()", 10000); 
+          
 }
+function getDisplayData(){
+        var url = "/getDisplayData"
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET',url);
+        xhr.send();
+        xhr.onreadystatechange = function(){
+                if(xhr.readyState===4 && xhr.status ===200){
+                        displayData = JSON.parse(xhr.responseText)
+                        for(i in displayData.length()){
+                                console.log(displayData[i].tabname)
+                        }
+                }
+        }
+}
+
+
 //ウィンドウの基本設定
 window.addEventListener("load",function(){
         for(var i=0;i<itemList.length;i++){

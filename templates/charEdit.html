@@ -7,11 +7,12 @@
     <script src="/static/js/characterEdit.js"></script>
   </head>
   <body>
+    <form action="post" accept-charset="UTF-8" method="post">
     <div id="gameName">
         <input type="text" placeholder="＜TRPG名＞" name="gameName">
     </div>
     <div id="commitButton">
-      <input type="button" value="保存する" onclick="history.back()">
+      <input type="submit" value="保存する">
     </div>
     <div id="charMain">
         <div id="charImage">
@@ -53,11 +54,11 @@
               </a>
             </td>
             <td>
-                <input type="text" placeholder="＜能力名＞" style="width:100%; box-sizing:border-box" >
+                <input type="text" name="statusName" placeholder="＜能力名＞" style="width:100%; box-sizing:border-box" >
             </td>
             <td>:</td>
             <td>
-                <input type="text" placeholder="＜能力値＞" style="width:100%; box-sizing:border-box" >
+                <input type="text" name="statusV" placeholder="＜能力値＞" style="width:100%; box-sizing:border-box" >
             </td>
             <td>　</td>
           </table>
@@ -84,11 +85,11 @@
               </a>
             </td>
             <td>
-                <input type="text" placeholder="＜技能名＞" style="width:100%; box-sizing:border-box" >
+                <input type="text" name="skillName" placeholder="＜技能名＞" style="width:100%; box-sizing:border-box" >
             </td>
             <td>:</td>
             <td>
-                <input type="text" placeholder="＜技能値＞" style="width:100%; box-sizing:border-box" >
+                <input type="text" name="skillV" placeholder="＜技能値＞" style="width:100%; box-sizing:border-box" >
             </td>
             <td>　</td>
           </table>
@@ -105,7 +106,7 @@
             </h4>
           </div>
           <div style="width:calc(100% - 10px); float:left; margin:3px;">
-              <textarea style="width:100%;" oninput="textAreaHeightSet(this)" onchange="textAreaHeightSet(this)" placeholder="所持品を記入してください"></textarea>
+              <textarea style="width:100%;" name="item" oninput="textAreaHeightSet(this)" onchange="textAreaHeightSet(this)" placeholder="所持品を記入してください"></textarea>
           </div>
         </div>
         <div style="width:50%; float:left;">
@@ -117,7 +118,7 @@
             </h4>
           </div>
           <div style="width:calc(100% - 10px); float:left; margin:3px;">
-              <textarea style="width:100%;" oninput="textAreaHeightSet(this)" onchange="textAreaHeightSet(this)" placeholder="状態を記入してください"></textarea>
+              <textarea style="width:100%;" name="buf" oninput="textAreaHeightSet(this)" onchange="textAreaHeightSet(this)" placeholder="状態を記入してください"></textarea>
           </div>
         </div>
       </div>
@@ -130,8 +131,9 @@
         </h4>
       </div>
       <div style="width:calc(100% - 10px); float:left; margin:3px;">
-        <textarea style="width:100%;" oninput="textAreaHeightSet(this)" onchange="textAreaHeightSet(this)" placeholder="キャラクターの設定などを記入してください"></textarea>
+        <textarea style="width:100%;" name="memo" oninput="textAreaHeightSet(this)" onchange="textAreaHeightSet(this)" placeholder="キャラクターの設定などを記入してください"></textarea>
       </div>
     </div>
+   </form>
   </body>
 </html>    

@@ -41,4 +41,3 @@ function textAreaHeightSet(argObj){
          argObj.style.height = wSclollHeight + "px";
 }
 
-

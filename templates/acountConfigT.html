@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+</head>
+<body>
+  <div>
+    {% set name = user["username"] %}
+    {% set pass = user["password"] %}
+    {% set memo = user["memo"] %}
+
+    <p>名前: {{ name }}</p>
+    <p>パスワード： {{ pass }}</p>
+    <p>個人メモ： {{ memo }}</p>
+  </div>
+</body>
+</html>

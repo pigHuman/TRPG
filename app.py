@@ -68,7 +68,6 @@ def _is_account_valid():
     except:
         return False
 
-
 @app.route('/acountCreate/',methods=['POST','GET'])
 def acountCreate():
     if request.method == 'POST':
@@ -91,7 +90,7 @@ def acountOverlap():
     except:
         return True
 
-@app.route('/charSelect/',methods=['GET'])
+@app.route('/charSelect/',methods=['GET','POST'])
 def charSelect():
     char = []
     username = session["username"]
@@ -103,6 +102,12 @@ def charSelect():
     print(char)
 
     return render_template('charSelect.html',char=char)
+
+    if request.method == 'POST':
+        charName = request.form("charName")
+        charData = charsheet_find(charName)
+        print(charData)
+        return jsonify(ResultSet=charData)
 
 @app.route('/logout', methods=['GET'])
 def logout():
@@ -136,9 +141,15 @@ def Accounts_insert():
 
 @app.route("/roomSelect/")
 def roomSelect():
-    #if request.method == "GET":
-    #    return roomlist_find()
-    return render_template('roomSelect.html')
+    room = []
+    room_data = mongo.db.Display.find()
+
+    for i in room_data:
+        room.append(i['roomname'])
+
+    print(room)
+
+    return render_template('roomSelect.html',roomname=room)
 
 @app.route("/roomEdit/")
 def rommEdit():
@@ -209,8 +220,6 @@ def sheetdrop():
 def charsheet_find(charname):
     username = session["username"]
     char_data = mongo.db.charsheet.find_one({ "$and": [{"username": username},{"charname":charname}]})
-    del char_data["_id"]
-    char_data = json.dumps(char_data)
     return char_data
 
 def roomlist_find():
@@ -220,6 +229,20 @@ def roomlist_find():
     del roomlist_data["_id"]
     roomlist_data = json.dumps(roomlist_data)
     return roomlist_data
+
+@app.route("/getDisplayData",methods=['GET'])
+def getDisp():
+    username = session["username"]
+    user = mongo.db.users.find_one({"username":username})
+    roomname =user["roomname"]
+
+    displayData = mongo.db.Display.find_one({"roomname":roomname})
+    displayData = displayData["tabs"]
+    #del displayData["_id"]
+
+    print(displayData)
+    return jsonify(ResultSet=displayData)
+
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=8000)
